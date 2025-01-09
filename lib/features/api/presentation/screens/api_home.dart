@@ -32,7 +32,13 @@ class _ApiHomeState extends State<ApiHome> {
           child: Container(
             height: size.height,
             width: size.width,
-            child: ListView.builder(
+            child: apiController.dishRecipes == null ?
+             Container(
+               height: 50,
+                 width: 50,
+                 child: Center(child: CircularProgressIndicator())) :
+
+            ListView.builder(
               itemCount: apiController.dishRecipes!.recipes!.length,
               itemBuilder: (BuildContext context, int index) {
                 print('calling Api UI');
@@ -40,6 +46,7 @@ class _ApiHomeState extends State<ApiHome> {
                 return ApiCard(recipes: recipes,);
               },
             ),
+
           ),
         );
       }),

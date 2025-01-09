@@ -15,27 +15,20 @@ Future<void> init() async {
 
   Get.lazyPut(()=> ApiClient(appBaseUrl: ''));
 
-  //Get.lazyPut(() => MessageRepository(apiClient: Get.find()));
   Get.lazyPut(()=> ApiRepository(apiClient :Get.find()));
 
-  //MessageRepositoryInterface messageRepositoryInterface = MessageRepository(apiClient: Get.find());
   ApiRepositoryInterface apiRepositoryInterface = ApiRepository(apiClient: Get.find());
 
-  //Get.lazyPut(() => messageRepositoryInterface);
   Get.lazyPut(()=> apiRepositoryInterface);
 
-  //MessageServiceInterface messageServiceInterface = MessageService(messageRepositoryInterface: Get.find());
   ApiServiceInterface apiServiceInterface = ApiService(apiRepositoryInterface: Get.find());
 
-  //Get.lazyPut(() => messageServiceInterface);
   Get.lazyPut(()=> apiServiceInterface);
 
 
 
-  //Get.lazyPut(() => MessageController(messageServiceInterface: Get.find()));
   Get.lazyPut(()=> ApiController(apiServiceInterface: apiServiceInterface));
 
-  //Get.lazyPut(() => MessageService(messageRepositoryInterface: Get.find()));
   Get.lazyPut(()=>ApiService(apiRepositoryInterface: Get.find()));
 
 }

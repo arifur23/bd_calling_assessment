@@ -57,6 +57,15 @@ class ApiController extends GetxController implements GetxService{
         dishRecipes!.recipes = recipes;
         print(dishRecipes!.limit.toString());
         print(dishRecipes!.recipes!.length.toString());
+
+        if(recipes.isEmpty){
+          dishRecipes ?? DishRecipes(
+              limit: 0,
+              total: 0,
+              recipes: []
+          );
+        }
+
       }catch(e){
 
       }
