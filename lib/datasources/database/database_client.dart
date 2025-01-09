@@ -182,13 +182,4 @@ class DatabaseClient {
     return await db.rawDelete("DELETE FROM $tableDishRecipes");
   }
 
-  // Decode a JSON string into a list
-  List<String> decodeList(String listString) {
-    return List<String>.from(json.decode(listString));
-  }
-
-  // Encode a list into a JSON string
-  String encodeList(List<String> list) {
-    return json.encode(list);
-  }
 }
